@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-06T13:56:00+08:00",
+  "title": "Design System: Notes Studio",
+  "extensions": {
+    "colorMeta": {
+      "accent": { "role": "primary", "displayName": "Signal Orange 信号橙", "canonical": "#ff4d00", "tonalRamp": ["#2b0d00", "#571d00", "#8a2e00", "#bd3f00", "#ff4d00", "#ff7a3d", "#ffa578", "#ffd2b8"] },
+      "paper": { "role": "neutral", "displayName": "Warm Paper 暖纸白", "canonical": "#f5f1e8", "tonalRamp": ["#1c1a14", "#383428", "#56503c", "#756e52", "#958e6c", "#b8b090", "#d6cfb9", "#f5f1e8"] },
+      "paper-deep": { "role": "neutral", "displayName": "Paper Deep 深纸白", "canonical": "#ece6d9", "tonalRamp": ["#1b1812", "#363024", "#544a38", "#726750", "#90856a", "#b3a88e", "#d1c8b3", "#ece6d9"] },
+      "card": { "role": "neutral", "displayName": "Card Pure 纯白稿纸", "canonical": "#ffffff", "tonalRamp": ["#1a1a1a", "#333333", "#4d4d4d", "#666666", "#999999", "#cccccc", "#e6e6e6", "#ffffff"] },
+      "ink": { "role": "neutral", "displayName": "Ink 墨黑", "canonical": "#111111", "tonalRamp": ["#111111", "#2a2a2a", "#454545", "#5f5f5f", "#8a8a8a", "#b0b0b0", "#d5d5d5", "#f2f2f2"] },
+      "muted": { "role": "neutral", "displayName": "Muted 灰墨", "canonical": "#8c877d", "tonalRamp": ["#1e1c18", "#39362f", "#555147", "#726c5f", "#8c877d", "#a9a49a", "#c6c1b8", "#e5e1d9"] },
+      "hairline": { "role": "neutral", "displayName": "Hairline 发丝线", "canonical": "rgba(17, 17, 17, 0.14)", "tonalRamp": ["#111111", "#2e2e2e", "#4b4b4b", "#6a6a6a", "#8f8f8f", "#b4b4b4", "#d8d8d8", "#f0f0f0"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display / YouSheBiaoTiHei", "purpose": "仅品牌行「笔记」二字，海报体，全站唯一出现点。" },
+      "headline": { "displayName": "Headline / Geist Semibold", "purpose": "md-prose 的 h1-h3，带下边线的印刷标题。" },
+      "body": { "displayName": "Body / Geist Regular", "purpose": "预览侧阅读排版：16px、1.6 行高、≤68ch。" },
+      "editor": { "displayName": "Editor / Geist Mono", "purpose": "写作侧草稿字：等宽 13px、1.7 行高、透明底。" },
+      "label": { "displayName": "Label / Geist Mono uppercase", "purpose": "PREVIEW、语言铭牌、时间戳等机器注脚。" }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "note-enter", "value": "note-enter 220ms ease-out", "purpose": "新卡片从 -6px 淡入下滑入场。" }
+    ],
+    "breakpoints": [
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Note Card",
+      "kind": "card",
+      "refersTo": "note-card",
+      "description": "书架中的笔记卡片：纯白稿纸、发丝线、选中时左侧 3px 橙线。",
+      "html": "<div class=\"ds-note-card ds-note-card--active\"><div class=\"ds-note-card__title\">欢迎使用 Notes Studio</div><div class=\"ds-note-card__stamp\">11月6日 13:48</div></div>",
+      "css": ".ds-note-card { position: relative; background: #ffffff; border: 1px solid rgba(17,17,17,0.14); padding: 16px 24px; color: #111111; cursor: pointer; transition: border-color 150ms ease; } .ds-note-card:hover { border-color: rgba(17,17,17,0.28); } .ds-note-card--active { border-color: rgba(17,17,17,0.28); } .ds-note-card--active::before { content: ''; position: absolute; inset-block: 0; left: 0; width: 3px; background: #ff4d00; } .ds-note-card__title { font-size: 14px; font-weight: 500; } .ds-note-card__stamp { margin-top: 4px; font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #8c877d; }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "field-search",
+      "description": "书架搜索框：白底发丝线，聚焦转橙。",
+      "html": "<input class=\"ds-field-search\" type=\"text\" placeholder=\"搜索笔记…\" />",
+      "css": ".ds-field-search { border: 1px solid rgba(17,17,17,0.14); background: #ffffff; color: #111111; font-size: 0.8125rem; padding: 8px 12px; outline: none; transition: border-color 150ms ease; width: 100%; } .ds-field-search::placeholder { color: #8c877d; } .ds-field-search:focus { border-color: rgba(255,77,0,0.55); }"
+    },
+    {
+      "name": "New Button",
+      "kind": "button",
+      "refersTo": "button-new",
+      "description": "新建笔记按钮：深纸白底、加号细线图标。",
+      "html": "<button class=\"ds-btn-new\" aria-label=\"新建笔记\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" aria-hidden=\"true\"><path d=\"M8 3v10M3 8h10\"/></svg></button>",
+      "css": ".ds-btn-new { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #ece6d9; color: #111111; border: 1px solid rgba(17,17,17,0.14); cursor: pointer; transition: border-color 150ms ease; border-radius: 0; } .ds-btn-new:hover { border-color: rgba(17,17,17,0.28); } .ds-btn-new:focus-visible { border-color: rgba(255,77,0,0.55); outline: none; }"
+    },
+    {
+      "name": "Brand Row",
+      "kind": "nav",
+      "refersTo": "typography.display",
+      "description": "侧栏品牌行：YouShe 海报体「笔记」+ mono-label 英文副题。",
+      "html": "<div class=\"ds-brand\"><div class=\"ds-brand__zh\">笔记</div><div class=\"ds-brand__en\">NOTES STUDIO — 明亮书房</div></div>",
+      "css": ".ds-brand { padding: 24px 24px 16px; } .ds-brand__zh { font-family: 'YouSheBiaoTiHei', sans-serif; font-size: 1.125rem; letter-spacing: 0.03em; color: #111111; } .ds-brand__en { margin-top: 4px; font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #8c877d; }"
+    },
+    {
+      "name": "Code Block",
+      "kind": "custom",
+      "refersTo": "components",
+      "description": "亮色代码块：#f4f4f4 底、右上角语言铭牌、oneLight 着色。",
+      "html": "<div class=\"ds-code-wrap\"><span class=\"ds-code-lang\">TS</span><pre class=\"ds-code\"><code>interface Book {\n  title: string;\n}</code></pre></div>",
+      "css": ".ds-code-wrap { position: relative; background: #f4f4f4; border: 1px solid rgba(17,17,17,0.14); border-radius: 0; } .ds-code-lang { position: absolute; top: 6px; right: 9px; font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #8c877d; } .ds-code { margin: 0; padding: 14px 16px; font-size: 0.8125rem; line-height: 1.6; font-family: ui-monospace, monospace; color: #111111; background: transparent; }"
+    },
+    {
+      "name": "Editor Title",
+      "kind": "input",
+      "refersTo": "typography.display",
+      "description": "编辑侧标题栏：h-12、底部发丝线、YouShe 字体。",
+      "html": "<input class=\"ds-editor-title\" type=\"text\" value=\"欢迎使用 Notes Studio\" />",
+      "css": ".ds-editor-title { height: 48px; width: 100%; border: 0; border-bottom: 1px solid rgba(17,17,17,0.14); background: transparent; padding: 0 24px; font-size: 1.125rem; letter-spacing: 0.03em; color: #111111; outline: none; font-family: 'YouSheBiaoTiHei', sans-serif; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Bright Study（明亮书房）",
+    "overview": "Notes Studio 是主站暗色「剪辑台」世界的亮色镜像：同样的墨黑与信号橙，把墨黑铺在纸上而不是夜里。整个应用是一间采光充足的书房 —— 台面是暖纸白，卡片是一页页纯白的稿纸，文字是吸足墨水的近黑，唯一的强调色是同一支信号橙，像书签绳一样只做标记。密度克制、层级靠发丝线而不是阴影；排版承担全部表现力：编辑侧是安静的等宽字稿纸，预览侧是 16px / 1.6 行高的杂志级阅读排版。",
+    "keyCharacteristics": [
+      "亮色纸本世界，与主站暗色同源翻转（同一支橙、同一组字体、同一条发丝线纪律）",
+      "橙色是唯一信号色：选中标记、列表圆点、引用线、链接，永远不做大面积填充",
+      "深度靠纸面层次（paper → paper-deep → card），零阴影",
+      "直角世界：全站零圆角，边界一律 1px 发丝线"
+    ],
+    "rules": [
+      { "name": "The One Mark Rule", "body": "橙色只做「记号」不做「底色」：一根线、一个点、一条引用边。禁止大面积橙色填充背景。", "section": "colors" },
+      { "name": "The Paper Stack Rule", "body": "层次用纸面颜色表达：paper（台面）→ paper-deep（次级区）→ card（稿纸）。永远不用 box-shadow 表达深度。", "section": "colors" },
+      { "name": "The Draft vs Print Rule", "body": "编辑侧永远等宽 13px（草稿感），预览侧永远 Geist 16px/1.6（印刷感）。两侧不互换字体。", "section": "typography" },
+      { "name": "The Flat Desk Rule", "body": "台面是平的。任何组件在任何状态下都不允许出现 box-shadow。", "section": "elevation" }
+    ],
+    "dos": [
+      "Do 用纸面三层色（paper/paper-deep/card）表达一切层次。",
+      "Do 橙色只做记号：选中线（3px）、列表点、引用边（2px）、焦点描边（0.55 alpha）。",
+      "Do 预览排版遵守 16px / 1.6 行高 / ≤68ch。",
+      "Do 所有边界用 1px 发丝线 rgba(17,17,17,0.14)。"
+    ],
+    "donts": [
+      "Don't 使用任何 box-shadow 或投影。",
+      "Don't 使用深色/黑色代码块 —— 代码高亮必须是亮色主题（oneLight）。",
+      "Don't 圆角 —— 全站直角。",
+      "Don't 给橙色大面积填充（按钮底、区块底）。",
+      "Don't 用 emoji 图标 —— 图标一律 1.5px stroke 细线 SVG。"
+    ]
+  }
+}
